@@ -1,0 +1,838 @@
+/* =========================================
+   CONFIGURACIÓN GENERAL
+========================================= */
+
+:root {
+    --cream: #fff9f2;
+    --cream-dark: #f4e9dc;
+    --white: #ffffff;
+    --wine: #6d172d;
+    --wine-dark: #45101f;
+    --red: #a62c43;
+    --red-light: #c84b61;
+    --pink: #f5dce0;
+    --gold: #c6a15b;
+    --gold-light: #e5ca8c;
+    --text: #44333a;
+    --muted: #806b70;
+    --shadow: 0 12px 35px rgba(70, 20, 35, 0.09);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 25px;
+}
+
+body {
+    font-family: "Lato", sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3 {
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 600;
+    line-height: 1.15;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    font: inherit;
+}
+
+::selection {
+    background: var(--pink);
+    color: var(--wine-dark);
+}
+
+
+/* =========================================
+   PORTADA
+========================================= */
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 80px 22px 55px;
+    position: relative;
+    overflow: hidden;
+
+    background: linear-gradient(
+        145deg,
+        #45101f 0%,
+        #6d172d 48%,
+        #8d2b42 100%
+    );
+
+    color: var(--cream);
+}
+
+.hero::before,
+.hero::after {
+    content: "";
+    position: absolute;
+    border: 1px solid rgba(229, 202, 140, 0.22);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.hero::before {
+    width: 420px;
+    height: 420px;
+    top: -190px;
+    left: -150px;
+}
+
+.hero::after {
+    width: 520px;
+    height: 520px;
+    bottom: -300px;
+    right: -170px;
+}
+
+.hero-content {
+    width: 100%;
+    max-width: 760px;
+    position: relative;
+    z-index: 2;
+    animation: fadeUp 1s ease both;
+}
+
+.eyebrow,
+.section-kicker {
+    display: block;
+    font-size: 0.76rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.eyebrow {
+    color: var(--gold-light);
+    margin-bottom: 24px;
+}
+
+.hero-rose {
+    font-size: 3.2rem;
+    margin-bottom: 8px;
+    animation: roseFloat 3s ease-in-out infinite;
+}
+
+.hero h1 {
+    font-size: clamp(4rem, 10vw, 7.5rem);
+    font-weight: 500;
+    letter-spacing: -2px;
+}
+
+.hero h1 span {
+    color: var(--gold-light);
+    font-style: italic;
+}
+
+.gold-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin: 25px auto;
+    max-width: 240px;
+    color: var(--gold-light);
+}
+
+.gold-divider span {
+    width: 75px;
+    height: 1px;
+    background: var(--gold);
+}
+
+.gold-divider i {
+    font-size: 0.9rem;
+    font-style: normal;
+}
+
+.hero-dedication {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 2rem;
+    color: var(--gold-light);
+    margin-bottom: 15px;
+}
+
+.hero-description {
+    max-width: 490px;
+    margin: 0 auto 30px;
+    color: #f3e4e5;
+    font-size: 1.04rem;
+    font-weight: 300;
+}
+
+.button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    min-height: 48px;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.button:hover {
+    transform: translateY(-3px);
+}
+
+.button-gold {
+    background: var(--gold-light);
+    color: var(--wine-dark);
+}
+
+.button-gold:hover {
+    background: #f0dca9;
+}
+
+.hero-bottom {
+    margin-top: 70px;
+    font-size: 0.74rem;
+    color: #e6cdd1;
+    letter-spacing: 1.5px;
+}
+
+
+/* =========================================
+   SECCIONES GENERALES
+========================================= */
+
+.section-padding {
+    padding: 100px 24px;
+}
+
+.section-heading {
+    text-align: center;
+    max-width: 750px;
+    margin: 0 auto 55px;
+}
+
+.section-kicker {
+    color: var(--gold);
+    margin-bottom: 13px;
+}
+
+.section-heading h2,
+.poem-container h2 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    color: var(--wine);
+}
+
+.section-subtitle {
+    margin-top: 14px;
+    font-size: 1rem;
+    color: var(--muted);
+}
+
+.small-divider {
+    color: var(--gold);
+    margin-top: 22px;
+    font-size: 1.2rem;
+}
+
+
+/* =========================================
+   INTRODUCCIÓN
+========================================= */
+
+.introduction {
+    background: var(--cream);
+    text-align: center;
+}
+
+.introduction .section-heading {
+    margin-bottom: 35px;
+}
+
+.introduction-text {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.introduction-text p {
+    margin-bottom: 22px;
+    font-size: 1.05rem;
+    line-height: 1.9;
+}
+
+.highlight-text {
+    color: var(--wine);
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.55rem !important;
+    font-weight: 600;
+    margin-top: 30px;
+}
+
+
+/* =========================================
+   SECCIÓN DE ROSAS BLANCAS
+========================================= */
+
+.white-section {
+    background: #f4ede4;
+}
+
+.white-section .section-heading h2 {
+    color: #775d60;
+}
+
+.color-divider {
+    width: 65px;
+    height: 3px;
+    margin: 23px auto 0;
+    border-radius: 3px;
+}
+
+.white-divider {
+    background: #d9c9c2;
+}
+
+.red-divider {
+    background: var(--gold);
+}
+
+
+/* =========================================
+   SECCIÓN DE ROSAS ROJAS
+========================================= */
+
+.red-section {
+    background: var(--wine-dark);
+}
+
+.red-section .section-heading h2 {
+    color: var(--cream);
+}
+
+.red-section .section-subtitle {
+    color: #e2cbd0;
+}
+
+.red-section .section-kicker {
+    color: var(--gold-light);
+}
+
+
+/* =========================================
+   TARJETAS DE LAS ROSAS
+========================================= */
+
+.rose-grid {
+    width: 100%;
+    max-width: 1150px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.rose-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-height: 250px;
+    padding: 28px 23px;
+    border-radius: 16px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    overflow: hidden;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.white-section .rose-card {
+    background: #fffaf5;
+    border-color: #e7dcd2;
+    box-shadow: 0 6px 18px rgba(78, 47, 50, 0.04);
+}
+
+.red-section .rose-card {
+    background: #5a1729;
+    border-color: #87364a;
+    color: var(--cream);
+}
+
+.rose-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+}
+
+.white-section .rose-card:hover {
+    border-color: #c9a875;
+}
+
+.red-section .rose-card:hover {
+    border-color: var(--gold);
+}
+
+.rose-number {
+    position: absolute;
+    top: 13px;
+    left: 15px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    opacity: 0.6;
+}
+
+.rose-icon {
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 8px auto 16px;
+    border-radius: 50%;
+    font-size: 2rem;
+    transition: transform 0.3s ease;
+}
+
+.white-section .rose-icon {
+    background: #f0e4dc;
+}
+
+.red-section .rose-icon {
+    background: #76243a;
+}
+
+.rose-card:hover .rose-icon,
+.rose-card.is-open .rose-icon {
+    transform: scale(1.08) rotate(-5deg);
+}
+
+.rose-card h3 {
+    font-size: 1.65rem;
+    margin-bottom: 8px;
+}
+
+.white-section .rose-card h3 {
+    color: var(--wine);
+}
+
+.red-section .rose-card h3 {
+    color: var(--gold-light);
+}
+
+.rose-short {
+    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+.red-section .rose-short {
+    color: #e6cdd2;
+}
+
+.rose-description {
+    display: none;
+    margin-top: 16px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(198, 161, 91, 0.45);
+    font-size: 0.94rem;
+    line-height: 1.8;
+    animation: fadeUp 0.35s ease both;
+}
+
+.rose-card.is-open .rose-description {
+    display: block;
+}
+
+.rose-toggle {
+    margin-top: auto;
+    padding-top: 17px;
+    color: var(--gold);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.red-section .rose-toggle {
+    color: var(--gold-light);
+}
+
+.interaction-hint {
+    margin-top: 35px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+}
+
+.red-section .interaction-hint {
+    color: #e2cbd0;
+}
+
+
+/* =========================================
+   POEMA
+========================================= */
+
+.poem-section {
+    background: var(--cream);
+    text-align: center;
+}
+
+.poem-container {
+    max-width: 740px;
+    margin: 0 auto;
+}
+
+.poem-flower {
+    font-size: 2.5rem;
+    margin: 25px 0 8px;
+}
+
+.poem-container h2 {
+    margin-bottom: 8px;
+    font-style: italic;
+}
+
+.poem-divider {
+    color: var(--gold);
+    margin: 20px auto 32px;
+}
+
+.poem-text {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.35rem;
+    line-height: 1.85;
+}
+
+.poem-text p {
+    margin-bottom: 25px;
+}
+
+.poem-text strong {
+    color: var(--wine);
+    font-size: 1.7rem;
+}
+
+.poem-emphasis {
+    color: var(--wine);
+    font-size: 1.65rem;
+    font-weight: 700;
+    font-style: italic;
+}
+
+.poem-ending {
+    color: var(--wine);
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-top: 35px;
+}
+
+
+/* =========================================
+   DEDICATORIA FINAL
+========================================= */
+
+.final-section {
+    background: linear-gradient(
+        145deg,
+        #45101f 0%,
+        #6d172d 55%,
+        #85243c 100%
+    );
+    color: var(--cream);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.final-content {
+    max-width: 720px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.final-section .section-kicker {
+    color: var(--gold-light);
+}
+
+.final-heart {
+    margin: 25px auto 10px;
+    font-size: 2.4rem;
+    color: var(--gold-light);
+    animation: heartbeat 2s ease-in-out infinite;
+}
+
+.final-section h2 {
+    font-size: clamp(3rem, 7vw, 5rem);
+    color: var(--cream);
+}
+
+.final-section h2 span {
+    color: var(--gold-light);
+    font-style: italic;
+}
+
+.final-message {
+    max-width: 550px;
+    margin: 22px auto;
+    color: #f0dfe2;
+    font-size: 1.02rem;
+    line-height: 1.9;
+}
+
+.final-highlight {
+    color: var(--gold-light);
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.55rem;
+}
+
+.final-roses {
+    margin: 30px 0 20px;
+    font-size: 2rem;
+    letter-spacing: 7px;
+}
+
+.signature {
+    margin: 15px 0 35px;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.7rem;
+    font-style: italic;
+    color: var(--gold-light);
+}
+
+.button-outline {
+    color: var(--cream);
+    border: 1px solid var(--gold-light);
+    background: transparent;
+}
+
+.button-outline:hover {
+    background: rgba(229, 202, 140, 0.12);
+}
+
+
+/* =========================================
+   PIE DE PÁGINA
+========================================= */
+
+.footer {
+    background: #350c18;
+    color: #d9bdc4;
+    text-align: center;
+    padding: 23px 15px;
+    font-size: 0.82rem;
+}
+
+.footer span {
+    color: var(--gold-light);
+}
+
+
+/* =========================================
+   PÉTALOS DECORATIVOS
+========================================= */
+
+.floating-petals {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.petal {
+    position: absolute;
+    top: -35px;
+    width: 12px;
+    height: 17px;
+    border-radius: 80% 10% 80% 10%;
+    background: #c94e65;
+    opacity: 0.5;
+    animation: fall linear forwards;
+}
+
+.petal.petal-light {
+    background: #f0d8d6;
+}
+
+.petal.petal-gold {
+    background: var(--gold-light);
+}
+
+
+/* =========================================
+   ANIMACIONES
+========================================= */
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes roseFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-9px);
+    }
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    15% {
+        transform: scale(1.12);
+    }
+
+    30% {
+        transform: scale(1);
+    }
+
+    45% {
+        transform: scale(1.08);
+    }
+}
+
+@keyframes fall {
+    to {
+        transform: translate3d(80px, 110vh, 0) rotate(600deg);
+        opacity: 0;
+    }
+}
+
+
+/* =========================================
+   TABLETAS
+========================================= */
+
+@media (max-width: 900px) {
+    .rose-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+    }
+
+    .section-padding {
+        padding: 80px 22px;
+    }
+}
+
+
+/* =========================================
+   CELULARES
+========================================= */
+
+@media (max-width: 560px) {
+    .hero {
+        min-height: 92vh;
+        padding: 65px 20px 40px;
+    }
+
+    .hero h1 {
+        font-size: clamp(3.5rem, 16vw, 5rem);
+    }
+
+    .hero-description {
+        font-size: 0.96rem;
+    }
+
+    .hero-bottom {
+        margin-top: 50px;
+    }
+
+    .section-padding {
+        padding: 65px 17px;
+    }
+
+    .section-heading {
+        margin-bottom: 38px;
+    }
+
+    .section-heading h2 {
+        font-size: 2.65rem;
+    }
+
+    .introduction-text p {
+        font-size: 0.98rem;
+    }
+
+    .rose-grid {
+        grid-template-columns: 1fr;
+        max-width: 390px;
+    }
+
+    .rose-card {
+        min-height: 225px;
+        padding: 25px 23px;
+    }
+
+    .poem-text {
+        font-size: 1.18rem;
+        line-height: 1.8;
+    }
+
+    .poem-emphasis {
+        font-size: 1.45rem;
+    }
+
+    .poem-ending {
+        font-size: 1.55rem;
+    }
+
+    .final-section h2 {
+        font-size: 3.3rem;
+    }
+
+    .final-message {
+        font-size: 0.97rem;
+    }
+}
+
+
+/* =========================================
+   ACCESIBILIDAD: MENOS ANIMACIÓN
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
